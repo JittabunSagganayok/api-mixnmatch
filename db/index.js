@@ -23,11 +23,11 @@ const mysql = require("mysql2/promise");
 require("dotenv").config();
 
 const dbConfig = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
+  host: "gateway01.ap-southeast-1.prod.aws.tidbcloud.com",
+  user: "32Sdj6coHLELADJ.root",
+  password: "e6Og69ARu3CNEG9I",
+  database: "mixnmatch01",
+  port: 4000,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
