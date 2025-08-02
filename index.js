@@ -78,7 +78,10 @@ app.use("/redeem", redeemRouter);
 app.use("/swipe", swipeRouter);
 
 app.get("/test", (req, res) => {
-  res.status(200).json({ message: "API is working!" });
+  res.status(200).json({
+    message: "API is working!",
+    database: process.env.DB_NAME,
+  });
 });
 
 // Listen
