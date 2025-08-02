@@ -77,6 +77,10 @@ app.use("/checkin", checkinRouter);
 app.use("/redeem", redeemRouter);
 app.use("/swipe", swipeRouter);
 
+app.get("/test", (req, res) => {
+  res.status(200).json({ message: "API is working!" });
+});
+
 // Listen
 app.listen(port, async () => {
   // await initMySQL();
