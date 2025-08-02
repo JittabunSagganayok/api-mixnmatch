@@ -79,7 +79,7 @@ app.use("/swipe", swipeRouter);
 
 app.get("/test", (req, res) => {
   res.status(200).json({
-    message: "API is working!",
+    message: "API is working! 2",
     database: process.env.DB_NAME,
   });
 });
