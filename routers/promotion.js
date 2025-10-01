@@ -75,7 +75,9 @@ router.get("/", authenticateToken, async (req, res) => {
 });
 
 async function getPromos(idBranch) {
-  let query = `SELECT * FROM redeemtype WHERE branchId = ?`;
+  let query = `SELECT * FROM redeemtype WHERE branchId = ?
+  order by redeemtypeId desc
+  `;
 
   const result = await db.query(query, [idBranch]);
 
