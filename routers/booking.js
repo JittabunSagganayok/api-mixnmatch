@@ -197,7 +197,9 @@ router.get("/dashboardlist/:id", authenticateToken, async (req, res) => {
       `SELECT * 
       FROM reservehistory rh 
       INNER JOIN users u ON rh.lastuserId = u.userId  
-      WHERE rh.id_branch = ? AND u.role = 'customer';
+      WHERE rh.id_branch = ? AND u.role = 'customer'
+      order by datereserve desc
+      ;
     `,
       [id]
     );
@@ -219,6 +221,7 @@ router.get("/redeem/:id", authenticateToken, async (req, res) => {
       INNER JOIN users u ON rh.userId = u.userId
       LEFT JOIN redeemtype rt ON rh.redeemtypeId = rt.redeemtypeId
       WHERE rh.branchId = ? AND u.role = 'customer'
+      order by date desc
     `;
 
     const queryParams = [id];
