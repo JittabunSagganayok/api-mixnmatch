@@ -43,7 +43,9 @@ async function getRecentcheckin(idBranch) {
            AND up.branchId = ${idBranch} 
        WHERE u.role = 'customer'
        AND JSON_CONTAINS(u.branchId, CAST('[${idBranch}]' AS JSON)) 
-   ) AS u ON ch.userId = u.userId;`;
+   ) AS u ON ch.userId = u.userId
+   order by date desc , time desc
+   ;`;
 
   const result = await db.query(query);
 
