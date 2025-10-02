@@ -221,7 +221,7 @@ router.get("/redeem/:id", authenticateToken, async (req, res) => {
       INNER JOIN users u ON rh.userId = u.userId
       LEFT JOIN redeemtype rt ON rh.redeemtypeId = rt.redeemtypeId
       WHERE rh.branchId = ? AND u.role = 'customer'
-      order by date desc
+      
     `;
 
     const queryParams = [id];
@@ -231,7 +231,7 @@ router.get("/redeem/:id", authenticateToken, async (req, res) => {
       query += " AND u.userId = ?";
       queryParams.push(userId);
     }
-
+    query += " ORDER BY rh.date DESC";
     const [results] = await db.query(query, queryParams);
 
     res.send(results);
